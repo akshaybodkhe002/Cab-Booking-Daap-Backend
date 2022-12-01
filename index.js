@@ -29,6 +29,16 @@ app.post('/registerDriver', async(req, res)=>{
     res.send(result);
 });
 
+app.get("/alldrivers", async (req, res) => {
+    const filters = req.query;
+    let users = await driver.find();
+    if (users.length > 0) {
+        res.send(users);
+    } else {
+        res.send("No Driver found");
+    }
+});
+
 
 
 
